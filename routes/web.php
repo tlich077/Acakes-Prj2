@@ -46,7 +46,7 @@ Route::get('/index', [ProductController::class, 'getNewProducts'])->name('getNew
 
 //protype
 // PROTYPE
-// Route::get('/index', [ProtypeController::class, 'getTypeName'])->name('getTypeName');
+//  Route::get('/index', [ProductController::class, 'getTypeName'])->name('getTypeName');
 
 
 
@@ -55,10 +55,11 @@ Route::get('/index', [ProductController::class, 'getNewProducts'])->name('getNew
 
 Route::get('/protype/{protype}', [ProductController::class, 'showByProtype'])->name('show');
 
+//Loại 
 Route::get('/products/type/{type_id}', [ProductController::class, 'showProductsByType'])->name('products.byType');
 
 // searrch 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-
+// chi tiết
 Route::get('/products/{id}', [DetailProductController::class,'detailProduct'])->name('products.show');
