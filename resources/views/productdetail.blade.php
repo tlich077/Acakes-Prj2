@@ -1,29 +1,5 @@
 @extends('layout.master')
 @section('main-container')
-		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
-		<!-- /NAVIGATION -->
-
 		
 		<!-- SECTION -->
 		<div class="section">
@@ -372,7 +348,7 @@
 							</div>
 							<div class="product-body">
 						
-								<h3 class="product-name"><a href="#">{{ $relatedProduct-> pro_name }}</a></h3>
+								<h3 class="product-name"><a href="{{ route('products.show', ['id' => $product->id]) }}">{{ $relatedProduct-> pro_name }}</a></h3>
 								<h4 class="product-price">{{ $relatedProduct-> price }}<del class="product-old-price">$990.00</del></h4>
 								<div class="product-rating">
 								</div>

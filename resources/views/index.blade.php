@@ -173,8 +173,8 @@
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">{{$pr -> pro_name}}</a></h3>
+												
+												<h3 class="product-name"><a href="{{ route('products.show', ['id' => $pr->id]) }}">{{$pr -> pro_name}}</a></h3>
 												<h4 class="product-price">{{$pr -> price}}<del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>

@@ -130,7 +130,7 @@
 									<img src="{{ $product -> image }}"> 							
 									</div>
 									<div class="product-body">
-										<h3 class="product-name"><a href="#">{{ $product->pro_name }}</a></h3>
+										<h3 class="product-name"><a href="{{ route('products.show', ['id' => $product->id]) }}">{{ $product->pro_name }}</a></h3>
 										<h4 class="product-price">{{ $product->price }}</h4>
 										<!-- <div class="product-rating">
 											<i class="fa fa-star"></i>
