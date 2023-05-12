@@ -136,7 +136,10 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="{{ route('getNewProducts') }}">Trang Chủ</a></li>
-						
+						<li class=""><a href="products/type/1">Bánh Ngọt</a></li>
+						<li class=""><a href="products/type/2">Bánh Mặn</a></li>
+						<li class=""><a href="products/type/3">Bánh Mì</a></li>
+						<li class=""><a href="products/type/4">Bánh Kem</a></li>
 						
 					</ul>
 					<!-- /NAV -->

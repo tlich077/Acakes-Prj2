@@ -46,7 +46,7 @@ Route::get('/index', [ProductController::class, 'getNewProducts'])->name('getNew
 
 //protype
 // PROTYPE
-//  Route::get('/index', [ProductController::class, 'getTypeName'])->name('getTypeName');
+//   Route::get('/index', [ProtypeController::class, 'getTypeName'])->name('getTypeName');
 
 
 
@@ -61,5 +61,5 @@ Route::get('/products/type/{type_id}', [ProductController::class, 'showProductsB
 // searrch 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-// chi tiết
+// chi tiet
 Route::get('/products/{id}', [DetailProductController::class,'detailProduct'])->name('products.show');
