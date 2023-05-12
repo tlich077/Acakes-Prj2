@@ -131,7 +131,7 @@
 									</div>
 									<div class="product-body">
 										<h3 class="product-name"><a href="{{ route('products.show', ['id' => $product->id]) }}">{{ $product->pro_name }}</a></h3>
-										<h4 class="product-price">{{ $product->price }}</h4>
+										<h4 class="product-price">{{ $product->price }} VNĐ</h4>
 										<!-- <div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -160,15 +160,8 @@
 						<!-- /store products -->
 
 						<!-- store bottom filter -->
-						<div class="store-filter clearfix">
-							<span class="store-qty">Showing 20-100 products</span>
-							<ul class="store-pagination">
-								<li class="active">1</li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-							</ul>
+						<div class="store-filter clearfix">		
+							{!!$products->links('pagination::bootstrap-4')!!}	
 						</div>
 						<!-- /store bottom filter -->
 					</div>
