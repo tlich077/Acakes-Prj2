@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\ProtypeController;
+use App\Http\Controllers\PolicyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,8 @@ Route::post('/login', [AuthController::class, 'customLogin'])->name('login.actio
 
 Route::get('/index', [AuthController::class,'index'])->name('index');
 
-
+//chinh sách
+Route::get('/policy', [PolicyController::class,'policy'])->name('policy');
 
 //LOGOUT
 Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
