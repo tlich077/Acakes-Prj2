@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Protype;
 use App\Models\Product;
-
+use App\Models\Rating;
 class DetailProductController extends Controller
 {
     //theo thoi gian moi nhat
@@ -15,8 +15,10 @@ class DetailProductController extends Controller
         $relatedProducts = Product::where('type_id', $product->type_id)
         ->where('id', '<>', $id)
         ->get();
-
-        return view('productdetail', compact('product','relatedProducts'));
+        $product = Product::findOrFail($id);
+        $ratings = Rating::where('product_id', $id)->get();
+        return view('productdetail', compact('product','relatedProducts','ratings'));
+        
     }
 
  
