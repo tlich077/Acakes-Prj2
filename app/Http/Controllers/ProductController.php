@@ -14,7 +14,10 @@ class ProductController extends Controller
         
         $products = Product::orderBy('created_at', 'desc')->get();
         $productsale = Product::where('sales', '>', 50)->get();
-        return view('index', compact('products','productsale'));
+        $newProduct = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $newProduct2 = Product::orderBy('created_at', 'desc')->skip(4)->take(4)->get();
+        $productbest = Product::where('sales', '>', 80)->take(4)->get();
+        return view('index', compact('products','productsale','newProduct','newProduct2','productbest'));
     }
 
    
