@@ -16,22 +16,24 @@ class ProductController extends Controller
         $productsale = Product::where('sales', '>', 50)->get();
         return view('index', compact('products','productsale'));
     }
-    
+
    
 
     // search
     public function search(Request $request)
     {
+        $perPage = 3;
         $keyword = $request->get('keyword');
         $products = Product::where('pro_name', 'like', '%' . $keyword . '%')
             ->orWhere('description', 'like', '%' . $keyword . '%')
-            ->get();
+            ->paginate($perPage);
         return view('search', compact('products', 'keyword'));
     }
     // Show Id Protype
     public function showProductsByType($type_id)
     {
-        $products = Product::where('type_id', $type_id)->get();
+        $perPage = 3;
+        $products = Product::where('type_id', $type_id)->paginate($perPage);
         $type_name = Protype::where('type_id', $type_id)->value('type_name');
         return view('typeproduct', compact('products', 'type_name'));
     }

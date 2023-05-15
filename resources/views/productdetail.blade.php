@@ -1,29 +1,5 @@
 @extends('layout.master')
 @section('main-container')
-		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
-		<!-- /NAVIGATION -->
-
 		
 		<!-- SECTION -->
 		<div class="section">
@@ -90,7 +66,7 @@
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">{{$product -> price}}<del class="product-old-price">$990.00</del></h3>
+								<h3 class="product-price">{{$product -> price}} VNĐ</h3>
 								
 							</div>
 							<p>{{$product -> description}}</p>
@@ -367,13 +343,13 @@
 							<div class="product-img">
 								<img src="{{ $relatedProduct-> image }}" alt="">
 								<div class="product-label">
-									<span class="sale">-30%</span>
+									<!-- <span class="sale">-30%</span> -->
 								</div>
 							</div>
 							<div class="product-body">
 						
-								<h3 class="product-name"><a href="#">{{ $relatedProduct-> pro_name }}</a></h3>
-								<h4 class="product-price">{{ $relatedProduct-> price }}<del class="product-old-price">$990.00</del></h4>
+								<h3 class="product-name"><a href="{{ route('products.show', ['id' => $product->id]) }}">{{ $relatedProduct-> pro_name }}</a></h3>
+								<h4 class="product-price">{{ $relatedProduct-> price }} VNĐ<del class="product-old-price">$990.00</del></h4>
 								<div class="product-rating">
 								</div>
 								<div class="product-btns">

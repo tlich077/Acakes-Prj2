@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\ProtypeController;
+use App\Http\Controllers\PolicyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,8 @@ Route::post('/login', [AuthController::class, 'customLogin'])->name('login.actio
 
 Route::get('/index', [AuthController::class,'index'])->name('index');
 
-
+//chinh sách
+Route::get('/policy', [PolicyController::class,'policy'])->name('policy');
 
 //LOGOUT
 Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
@@ -46,7 +48,7 @@ Route::get('/index', [ProductController::class, 'getNewProducts'])->name('getNew
 
 //protype
 // PROTYPE
-// Route::get('/index', [ProtypeController::class, 'getTypeName'])->name('getTypeName');
+//   Route::get('/index', [ProtypeController::class, 'getTypeName'])->name('getTypeName');
 
 
 
@@ -55,10 +57,11 @@ Route::get('/index', [ProductController::class, 'getNewProducts'])->name('getNew
 
 Route::get('/protype/{protype}', [ProductController::class, 'showByProtype'])->name('show');
 
+//Loại 
 Route::get('/products/type/{type_id}', [ProductController::class, 'showProductsByType'])->name('products.byType');
 
 // searrch 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-
+// chi tiet
 Route::get('/products/{id}', [DetailProductController::class,'detailProduct'])->name('products.show');

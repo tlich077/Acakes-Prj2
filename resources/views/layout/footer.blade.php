@@ -5,7 +5,7 @@
 				<div class="container-fluid">
 					<!-- row -->
 					<div class="row">
-						<div class="col-md-4 col-xs-6">
+						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Thông Tin</h3>
 								<p style="color:#a94442">Acakes nơi dành cho những bạn đam mê các loại bánh</p>
@@ -17,7 +17,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-xs-6">
+						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Thể Loại</h3>
 								<ul class="footer-links">
@@ -32,7 +32,7 @@
 
 						
 
-						<div class="col-md-4 col-xs-6">
+						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Dịch Vụ</h3>
 								<ul class="footer-links">
@@ -41,6 +41,15 @@
 									<li><a href="#">Sản Phẩm Yêu Thích</a></li>
 								
 									<li><a href="#">Trợ Giúp</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Chính sách</h3>
+								<ul class="footer-links">
+									<li><a href="{{route('policy')}}">Chính sách vận chuyển</a></li>
+									<li><a href="#">Chính sách đổi trả</a></li>
 								</ul>
 							</div>
 						</div>

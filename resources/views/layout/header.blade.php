@@ -15,7 +15,7 @@
 						
 						@else
 						@if (Auth::check())
-						<li>Xin Chào {{ auth()->user()->name }}</li>
+						<li style="color:#d12e00f0; font-weight:1000" >Xin Chào {{ auth()->user()->name }}</li>
 						<li><a href="{{ route('logout') }}"><i class="fa fa-user-o" style="color:#d12e00f0 !important"></i>Logout</a></li>
 						@endif
 						@endguest
@@ -135,9 +135,10 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="index">Trang Chủ</a></li>
-						
-						
+						<li class="active"><a href="{{ route('getNewProducts') }}">Trang Chủ</a></li>
+						@foreach($protypes as $pr)
+						<li><a href="products/type/{{$pr->type_id}}">{{$pr -> type_name}}</a></li>
+						@endforeach
 					</ul>
 					<!-- /NAV -->
 				</div>
