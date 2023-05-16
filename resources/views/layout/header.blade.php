@@ -15,8 +15,8 @@
 						
 						@else
 						@if (Auth::check())
-						<li style="color:#d12e00f0; font-weight:1000" >Xin Chào {{ auth()->user()->name }}</li>
-						<li><a href="{{ route('logout') }}"><i class="fa fa-user-o" style="color:#d12e00f0 !important"></i>Logout</a></li>
+						<li style="color:#fff; font-weight:1000" >{{ auth()->user()->name }}</li>
+						<li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" style="color:#d12e00f0 !important"></i>Logout</a></li>
 						@endif
 						@endguest
 					</ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\ProtypeController;
 use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\RatingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,3 +66,7 @@ Route::get('/products/search', [ProductController::class, 'search'])->name('prod
 
 // chi tiet
 Route::get('/products/{id}', [DetailProductController::class,'detailProduct'])->name('products.show');
+
+
+//rating
+Route::post('/products/{product_id}', [RatingController::class, 'store'])->name('ratings.store')->middleware('auth');
