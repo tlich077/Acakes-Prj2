@@ -8,6 +8,7 @@ use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\ProtypeController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +71,16 @@ Route::get('/products/{id}', [DetailProductController::class,'detailProduct'])->
 
 //rating
 Route::post('/products/{product_id}', [RatingController::class, 'store'])->name('ratings.store')->middleware('auth');
+
+// user
+
+Route::get('/admin/user', [UserController::class, 'user'])->name('user');
+// hien thi trang add user
+Route::get('/admin/user/add', [UserController::class, 'adduser'])->name('adduser');
+// action add
+Route::post('/admin/user/add1', [UserController::class, 'adduser1'])->name('adduser1');
+Route::get('/admin/user/edit/{id}', [UserController::class, 'edituser'])->name('edituser');
+Route::post('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('edit');
+// action delete
+Route::get('/admin/user/delete/{id}', [UserController::class, 'delete'])->name('deleteuser');
+Route::get('/admin/user/search', [UserController::class, 'searchUser'])->name('search');
