@@ -15,23 +15,22 @@
 					<div id="aside" class="col-md-3">
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Categories</h3>
+							<h3 class="aside-title">Loại</h3>
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
 									<input type="checkbox" id="category-1">
 									<label for="category-1">
-										<a href="">Laptops</a>
-										<small>(120)</small>
+										<a href=""></a>
+										<small></small>
 									</label>
 								</div>		
 							</div>
 						</div>
 						<!-- /aside Widget -->
-
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Price</h3>
+							<h3 class="aside-title">Giá</h3>
 							<div class="price-filter">
 								<div id="price-slider"></div>
 								<div class="input-number price-min">
