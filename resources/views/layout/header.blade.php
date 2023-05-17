@@ -72,7 +72,7 @@
 	   <div>
                             <a href="{{route('cart.show')}}">
 							<i class="fa fa-shopping-cart"></i>
-                                <span>Your Wishlist</span>
+                                <span>Your Cart</span>
                                 <div class="qty">2</div>
                             </a>
                         </div>
