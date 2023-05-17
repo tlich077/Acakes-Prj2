@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('pro_name');
             $table->integer('type_id');
-            $table->decimal('price', 10, 3);
+            $table->double('price');
             $table->string('image');
             $table->text('description');
             $table->timestamp('created_at');

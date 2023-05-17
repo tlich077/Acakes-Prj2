@@ -9,6 +9,7 @@ use App\Http\Controllers\ProtypeController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +85,8 @@ Route::post('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('edi
 // action delete
 Route::get('/admin/user/delete/{id}', [UserController::class, 'delete'])->name('deleteuser');
 Route::get('/admin/user/search', [UserController::class, 'searchUser'])->name('search');
+
+//cart
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+Route::get('/cart',  [CartController::class, 'showCart'])->name('cart.show');

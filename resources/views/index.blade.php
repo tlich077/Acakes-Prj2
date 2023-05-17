@@ -1,5 +1,3 @@
-
-
 @extends('layout.master')
 @section('main-container')
 
@@ -70,7 +68,7 @@
 											<div class="product-body">
 											
 												<h3 class="product-name"><a href="{{ route('products.show', ['id' => $product->id]) }}">{{$product -> pro_name}}</a></h3>
-												<h4 class="product-price">{{$product -> price}} VNĐ</h4>
+												<h4 class="product-price">{{number_format($product -> price)}} VNĐ</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -84,7 +82,13 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<form method="POST" action="{{ route('cart.add') }}">
+    @csrf
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
+    <input type="number" name="quantity" value="1">
+    	<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+</form>
+
 											</div>
 										</div>
 										<!-- /product -->
@@ -94,7 +98,7 @@
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
-							</div>
+</div>
 						</div>
 					</div>
 					<!-- Products tab & slick -->
@@ -174,7 +178,7 @@
 											</div>
 											<div class="product-body">		
 												<h3 class="product-name"><a href="{{ route('products.show', ['id' => $pr->id]) }}">{{$pr -> pro_name}}</a></h3>
-												<h4 class="product-price">{{$pr -> price}} VNĐ</h4>
+												<h4 class="product-price">{{number_format($pr -> price)}} VNĐ</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -206,7 +210,7 @@
 				<!-- /row -->
 			</div>
 			<!-- /container -->
-		</div>
+</div>
 		<!-- /SECTION -->
 
 			<!-- SECTION -->
@@ -234,7 +238,7 @@
 									<div class="product-body">
 									
 										<h3 class="product-name"><a href="{{ route('products.show', ['id' => $pr->id]) }}">{{ $pr -> pro_name}}</a></h3>
-										<h4 class="product-price">{{ $pr -> price }} VNĐ</h4>
+										<h4 class="product-price">{{number_format($pr -> price)}} VNĐ</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -253,7 +257,7 @@
 									<div class="product-body">
 									
 										<h3 class="product-name"><a href="{{ route('products.show', ['id' => $pr->id]) }}">{{$pr -> pro_name}}</a></h3>
-										<h4 class="product-price">{{$pr -> price}}</h4>
+										<h4 class="product-price">{{number_format($pr -> price)}}</h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -281,7 +285,7 @@
 									<div class="product-body">
 									
 										<h3 class="product-name"><a href="{{ route('products.show', ['id' => $pr->id]) }}">{{$pr -> pro_name}}</a></h3>
-										<h4 class="product-price">{{$pr -> price}} VND</h4>
+										<h4 class="product-price">{{number_format($pr -> price)}} VND</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -303,7 +307,7 @@
 								</div>
 								</div>
 								<!-- /product widget -->
-								@endforeach
+@endforeach
 							
 							
 							</div>
@@ -368,6 +372,3 @@
 
 
 		@endsection
-
-
-        	
