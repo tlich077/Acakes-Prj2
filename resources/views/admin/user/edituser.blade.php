@@ -282,7 +282,7 @@
                 @endif
             </label>
         </p>
-        <button type="submit" style="background:#2cb3f6;border: 5px;border-radius: 5px;" class="signup">Sửa</button>
+        <button class="btn btn-danger" type="submit" style="background:#2cb3f6;border: 5px;border-radius: 5px;" class="signup">Sửa</button>
         
     </form>
           </div><!-- /.col -->
@@ -367,6 +367,7 @@
     
     return false
   }
+  password_hash(pa);
   return true
   
  
