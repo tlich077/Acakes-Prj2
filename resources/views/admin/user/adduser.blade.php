@@ -151,8 +151,7 @@
                 @endif
             </label>
         </p>
-        <button style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup">Thêm</button>
-        
+        <button style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup"> Thêm</button>
     </form>
           </div><!-- /.col -->
         </div><!-- /.row -->

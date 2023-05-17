@@ -182,18 +182,20 @@
         <div class="row mb-2">
           
           <div class="col" style="width:600px">
-            <h1 class="m-0"><a href="">ADMIN</a></h1> <br>
+            <h1 class="m-0"><a href="">USER</a></h1> <br>
             <form action="{{ route('search') }}" method="get">
             <div style="display: flex" class="timkiem">
             <input class="form-control form-control-navbar" name="search" placeholder="Search" aria-label="Search">
-            <button style="background:gray;border: 0px;border-radius: 5px;width: 100px;margin-left:10px">Tìm kiếm</button>
+            <button class="btn btn-danger" style="background:gray;border: 0px;border-radius: 5px;width: 100px;margin-left:10px">Tìm kiếm</button>
           </div>
             </form>
             
           </div><!-- /.col -->
           <div class="col-sm-6">
             <br>
-          <button style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup"><a style="color: black" href="{{ route('adduser') }}">Thêm</a></button>
+          <button class="btn btn-danger" style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup"><a style="color: black" href="{{ route('adduser') }}">Thêm</a></button>
+          
+     
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -207,26 +209,29 @@
             <div class="cell">User</div>
             <div class="cell">Action</div>
         </div>
-        @foreach ($user as $user)
+        @foreach ($user as $value)    
         <div class="row">
       
-            <div class="cell">{{ $user->id }}</div>
-            <div class="cell">{{ $user->name}}</div>
-            <div class="cell">{{ $user->email}}</div>
+            <div class="cell">{{ $value->id }}</div>
+            <div class="cell">{{ $value->name}}</div>
+            <div class="cell">{{ $value->email}}</div>
             <div class="cell">
               <span>
-                <button style="background:#2cb3f6;border: 5px;border-radius: 5px;"><a style="color: black" href="{{ route('edituser', ['id' => $user->id]) }}">Sửa</a></button>
-                <button  style="background:#2cb3f6;border: 5px;border-radius: 5px;"><a  style="color: black" href="{{ route('deleteuser', ['id' => $user->id]) }}">Xóa</a></button>
+                <button class="btn btn-danger" style="background:#2cb3f6;border: 5px;border-radius: 5px;"><a style="color: black" href="{{ route('edituser', ['id' => $value->id]) }}">Sửa</a></button>
+                
+                <button type="submit" style="background:#2cb3f6;border: 5px;border-radius: 5px;" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa user này?')"
+                ><a  style="color: black" href="{{ route('deleteuser', ['id' => $value->id]) }}">Xóa</a></button>
               </span>
             </div>
         </div>
         @endforeach
-
-     
+        
         <!-- more rows... -->
     </div>
     </table>
     
+      {{$user->appends(Request::all())->links('pagination::bootstrap-4')}}
+
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -289,5 +294,12 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('js/admin/dashboard.js') }}"></script>
 
+<script>
+    document.getElementById("delete-form").addEventListener("submit", function(e) {
+        if (!confirm("Bạn có chắc chắn muốn xóa user này?")) {
+            e.preventDefault();
+        }
+    });
+</script>
 </body>
 </html>

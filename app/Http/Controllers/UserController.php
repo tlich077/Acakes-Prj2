@@ -10,7 +10,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class UserController extends Controller{
 
     public function user() {
-        $user = User::all();
+        $user = User::paginate(5);
+        Paginator::useBootstrap();
         return view('admin.user.user',['user' => $user]);
     }
     public function adduser(){
@@ -18,11 +19,9 @@ class UserController extends Controller{
     }
     public function delete($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        $user = User::all();
-        return view('admin.user.user',['user' => $user]);
-        
+        User::destroy($id);
+        return redirect('/admin/user');
+
     }
     public function edituser($id){
         $user = User::find($id);
@@ -33,31 +32,23 @@ class UserController extends Controller{
         $keyword = $request->get('search');
         $user = User::where('name', 'like', '%' . $keyword . '%')
             ->orWhere('email', 'like', '%' . $keyword . '%')
-            ->get();
+            ->paginate(5);
+            
         return view('admin.user.user', compact('user', 'keyword'));
+
     }
-    public function phanTrang()
-    {
-        if (Auth::check()) {
-            $user = DB::table('users')->orderBy('id','desc')->paginate(5);
-            return view('admin.user', compact('user'));
-            $user = User::paginate(5);
-        }
-        
-    }
+   
 
     public function edit($id, Request $request)
     {
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = Hash::make($request->input('password'));
        
         // dd($user);
         $user->update();
-        $user = User::all();
-        return view('admin.user.user',['user' => $user]);
-        return redirect('admin.user.edituser');
+        return redirect('/admin/user');
     }
     public function adduser1(Request $request)
     {
@@ -69,9 +60,8 @@ class UserController extends Controller{
 
         $data = $request->all();
         $check = $this->create($data, $request);
-        $user = User::all();
-        return view('admin.user.user',['user' => $user]);
-        return redirect("adduser1");
+        
+        return redirect('/admin/user');
         
     }
 
