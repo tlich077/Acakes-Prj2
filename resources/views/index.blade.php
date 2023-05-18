@@ -82,7 +82,7 @@
                                             <form method="POST" action="{{ route('wish.add') }}">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i></button>
+                                                <button class="add-to-wishlist" style="background-color: red"><i class="fa fa-heart-o" style="color: white"></i></button>
                                             </form>
                                                 <button class="quick-view"><i class="fa fa-eye"></i><span
                                                         class="tooltipp">quick view</span></button>
