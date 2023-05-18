@@ -54,7 +54,7 @@
                                 <td>{{ $item->product->pro_name }}</td>
                                 <td class="text-right">{{ $item->quantity }}</td>
                                 <td class="text-right">{{number_format($item->product->price) }} VNĐ</td>
-                                <td class="text-right">{{$item->product->price * $item->quantity}} VND</td>
+                                <td class="text-right">{{number_format($item->product->price * $item->quantity)}} VND</td>
                                 <td>
                                     <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
                                    <button onclick="removeFromCart({{ $item->id }})">Xóa</button>

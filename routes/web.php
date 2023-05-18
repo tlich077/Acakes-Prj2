@@ -10,6 +10,7 @@ use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,3 +91,9 @@ Route::get('/admin/user/search', [UserController::class, 'searchUser'])->name('s
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::get('/cart',  [CartController::class, 'showCart'])->name('cart.show');
+
+
+//wishlist
+Route::post('/cart/wish', [WishController::class, 'addWish'])->name('wish.add');
+
+Route::get('/wish',  [WishController::class, 'showWish'])->name('wish.show');
