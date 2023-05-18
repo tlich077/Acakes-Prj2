@@ -1,8 +1,5 @@
 @extends('layout.master')
-@section('main-container')
-
-
-     
+@section('main-container')     
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
