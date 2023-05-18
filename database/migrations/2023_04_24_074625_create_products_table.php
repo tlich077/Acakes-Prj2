@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('description');
             $table->timestamp('created_at');
+            $table->timestamp('updated_at');
             $table->integer('sales')->default(0);
         });
     }

@@ -31,7 +31,7 @@ Route::post('/register', [AuthController::class, 'Registration'])->name('registe
 
 //LOGIN
 Route::get('/login', [AuthController::class,'login'])->name('login');
-Route::post('/login', [AuthController::class, 'customLogin'])->name('login.action');
+Route::post('/login', [AuthController::class, 'customLogin1'])->name('login.action');
 
 
 Route::get('/index', [AuthController::class,'index'])->name('index');
@@ -97,3 +97,14 @@ Route::get('/cart',  [CartController::class, 'showCart'])->name('cart.show');
 Route::post('/cart/wish', [WishController::class, 'addWish'])->name('wish.add');
 
 Route::get('/wish',  [WishController::class, 'showWish'])->name('wish.show');
+
+// admin product
+Route::get('/admin/indexsp', [ProductController::class, 'indexsp'])->name('indexsp');
+// hien thi trang add product
+Route::get('/admin/indexsp/add', [ProductController::class, 'addsp1'])->name('addsp1');
+// action add
+Route::post('/admin/indexsp/addsp', [ProductController::class, 'addsp2'])->name('addsp2');
+Route::get('/admin/indexsp/edit/{id}', [ProductController::class, 'editsp'])->name('editsp');
+Route::post('/admin/indexsp/editt/{id}', [ProductController::class, 'editsp1'])->name('editsp1');
+// action delete
+Route::get('/admin/indexsp/delete/{id}', [ProductController::class, 'delete'])->name('deletesp');

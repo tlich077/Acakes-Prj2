@@ -64,6 +64,36 @@ class AuthController extends Controller{
         return view('index');
     }
 
+    public function customLogin1(Request $request)
+{
+$request->validate([
+    'email' => 'required',
+    'password' => 'required',
+]);
+
+$credentials = $request->only('email', 'password');
+if (Auth::attempt($credentials)) {
+    // Xác thực thành công, chuyển hướng đến đường dẫn mong muốn
+    return redirect()->intended($this->redirectPath());
+}
+// Xác thực thất bại, quay lại trang đăng nhập
+return redirect("login")->withSuccess('Login details are not valid');
+}
+
+// Định nghĩa phương thức redirectPath() để kiểm tra vai trò và trả về đường dẫn
+public function redirectPath()
+{
+// Nếu người dùng là admin, chuyển hướng đến trang admin
+if (Auth::user()->email == 'admin@gmail.com') {
+    return "/admin/user";
+}
+// Nếu người dùng là user, chuyển hướng đến trang index
+if (Auth::user()->email != 'admin@gmail.com') {
+    return "/index";
+}
+// Nếu không có vai trò nào khớp, chuyển hướng đến trang mặc định
+return "login";
+}
 
     //logout
     public function logOut()

@@ -13,7 +13,7 @@ class DetailProductController extends Controller
     {
         $product = Product::find($id);
         $relatedProducts = Product::where('type_id', $product->type_id)
-        ->where('id', '<>', $id)
+        ->where('id', '<>', $id)->take(4)
         ->get();
         $product = Product::findOrFail($id);
         $ratings = Rating::where('product_id', $id)->get();

@@ -40,5 +40,75 @@ class ProductController extends Controller
         $type_name = Protype::where('type_id', $type_id)->value('type_name');
         return view('typeproduct', compact('products', 'type_name'));
     }
+    //Xu li admin
+    public function indexsp(){
+        $product = Product::all();
+        return view('admin.product.indexsp',['indexsp' => $product]);
+    }
+    public function addsp1(){
+        return view('admin.product.addsp');
+    }
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        $product = Product::all();
+        return view('admin.product.indexsp',['indexsp' => $product]);
+        
+    }
+    public function editsp($id){
+        $product = Product::find($id);
+        return view('admin.product.editsp',compact('product'));
+    }
+    
+
+    public function editsp1($id, Request $request)
+    {
+        $product = Product::find($id);
+        $product->pro_name = $request->input('pro_name');
+        $product->type_id = $request->input('type_id');
+        $product->price = $request->input('price');
+        $product->image = $request->input('image');
+        $product->description = $request->input('description');
+        $product->sales = $request->input('sales');
+       
+        // dd($user);
+        $product->update();
+        $product = Product::all();
+        return view('admin.product.indexsp',['indexsp' => $product]);
+        return redirect('admin.product.editsp');
+    }
+    public function addsp2(Request $request)
+    {
+        $request->validate([
+            'pro_name' => 'required',
+            'type_id' => 'unrequired',
+            'price' => 'required',
+            'image' => 'required',
+            'description' => 'required',
+            'sales' => 'required',
+        ]);
+
+        $data = $request->all();
+        $check = $this->create($data, $request);
+        $product = Product::all();
+        return view('admin.product.indexsp',['indexsp' => $product]);
+        return redirect("addsp2");
+        
+    }
+
+    public function create(array $data, Request $request)
+    {
+
+        return Product::create([
+            'pro_name' => $data['pro_name'],
+            'type_id' => $data['type_id'],
+            'price' => $data['price'],
+            'image' => $data['image'],
+            'description' => $data['description'],
+            'sales' => $data['sales'],
+
+        ]);
+    }
 
 }

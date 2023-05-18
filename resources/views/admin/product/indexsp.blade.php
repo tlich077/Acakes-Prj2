@@ -32,8 +32,7 @@
     .table {
     display: table;
     width: 100%;
-    padding: 20px;
-    
+    border-collapse: collapse;
 }
 
 .row {
@@ -63,17 +62,29 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
-    
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-       
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -85,7 +96,67 @@
             </div>
           </form>
         </div>
-</li>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="{{ asset('css/admin/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="{{ asset('css/admin/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="{{ asset('css/admin/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
   
     </ul>
   </nav>
@@ -111,10 +182,38 @@
         </div>
       </div>
 
-     
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
+     
+      
+             <!-- Sidebar Menu -->
+             <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li style="text-align: center" class="nav-item menu-open">
+            <a href="{{ route('indexsp') }}" class="nav-link active">
+             
+              <p >
+               Product
+               
+              </p>
+            </a>
+            
+          </li>
+      </nav>
+       <!-- Sidebar Menu -->
+       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -129,117 +228,65 @@
             
           </li>
       </nav>
-      <!-- /.sidebar-menu -->
-      
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li style="text-align: center" class="nav-item menu-open">
-            <a href="{{route('indexsp')}}" class="nav-link active">
-             
-              <p>
-                PRODUCT
-                
-              </p>
-            </a>
-            
-          </li>
-      </nav>
-      <!-- /.sidebar-menu -->
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li style="text-align: center" class="nav-item menu-open">
-            <a href="" class="nav-link active">
-              
-              <p>
-                PROTYPE
-                
-              </p>
-            </a>
-            
-          </li>
-      </nav>
-      <!-- /.sidebar-menu -->
-      
-    </div>
-    <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  
   <div class="content-wrapper">
-    
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      
       <div class="container-fluid">
-        
-        <div class="row mb-2">
-          
-          <div class="col" style="width:600px">
-            <h1 class="m-0"><a href="">USER</a></h1> <br>
-            <form action="{{ route('search') }}" method="get">
-            <div style="display: flex" class="timkiem">
-            <input class="form-control form-control-navbar" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-danger" style="background:gray;border: 0px;border-radius: 5px;width: 100px;margin-left:10px">Tìm kiếm</button>
-          </div>
-            </form>
-            
+      <div class="row">
+          <div class="col">
+            <h1 class="m-0">Danh sách sản phẩm</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <br>
-          <button class="btn btn-danger" style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup"><a style="color: black" href="{{ route('adduser') }}">Thêm</a></button>
-          
-     
+         
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+    <button class="btn btn-danger" style="background: #5cb85c; border: 5px;border-radius: 5px;" type="submit" class="signup"><a style="color: black" href="{{route('addsp1')}}">Thêm</a></button>
+
     <table>
       <div class="table">
         <div class="row header">
-            <div class="cell">ID</div>
+        <div class="cell">ID</div>
             <div class="cell">Name</div>
-            <div class="cell">User</div>
+            <div class="cell">Type_id</div>
+            <div class="cell">Price</div>
+            <div class="cell">Image</div>
+            <div class="cell">Description</div>
+            <div class="cell">Sale</div>
             <div class="cell">Action</div>
         </div>
-        @foreach ($user as $value)    
+        @foreach ($indexsp as $indexsp)
         <div class="row">
       
-            <div class="cell">{{ $value->id }}</div>
-            <div class="cell">{{ $value->name}}</div>
-            <div class="cell">{{ $value->email}}</div>
-            <div class="cell">
-              <span>
-                <button class="btn btn-danger" style="background:#2cb3f6;border: 5px;border-radius: 5px;"><a style="color: black" href="{{ route('edituser', ['id' => $value->id]) }}">Sửa</a></button>
-                
-                <button type="submit" style="background:#2cb3f6;border: 5px;border-radius: 5px;" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa user này?')"
-                ><a  style="color: black" href="{{ route('deleteuser', ['id' => $value->id]) }}">Xóa</a></button>
-              </span>
+            <div class="cell">{{ $indexsp->id }}</div>
+            <div class="cell">{{ $indexsp->pro_name}}</div>
+            <div class="cell">{{ $indexsp->type_id}}</div>
+            <div class="cell">{{ $indexsp->price}}</div>
+            <div class="cell"><img src="{{ $indexsp->image}}" alt="" style="width: 100px"></div>
+            <div class="cell">{{ $indexsp->description}}</div>
+            <div class="cell">{{ $indexsp->sales}}</div>
+            
+            <div class="cell"><a href="{{ route('editsp', ['id' => $indexsp->id]) }}"><i class="btn btn-danger" aria-hidden="true">Sửa</i></a>
+            <span><a href="{{ route('deletesp', ['id' => $indexsp->id]) }}"><i class="btn btn-danger" aria-hidden="true">Xóa</i></a>
+            </span>
             </div>
         </div>
         @endforeach
-        
+
+     
         <!-- more rows... -->
     </div>
     </table>
-    
-      {{$user->appends(Request::all())->links('pagination::bootstrap-4')}}
-
+   
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
+   
   </footer>
 
   <!-- Control Sidebar -->
@@ -293,13 +340,5 @@
 <script src="{{ asset('js/admin/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('js/admin/dashboard.js') }}"></script>
-
-<script>
-    document.getElementById("delete-form").addEventListener("submit", function(e) {
-        if (!confirm("Bạn có chắc chắn muốn xóa user này?")) {
-            e.preventDefault();
-        }
-    });
-</script>
 </body>
 </html>
